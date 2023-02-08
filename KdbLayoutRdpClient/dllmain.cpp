@@ -1,11 +1,11 @@
 //=============================================================================
 //
-//  Модуль интеграции с RDP-клиентом
+//  РњРѕРґСѓР»СЊ РёРЅС‚РµРіСЂР°С†РёРё СЃ RDP-РєР»РёРµРЅС‚РѕРј
 //
-//  Библиотека RDP-клиента, через которую производится информирование KbdLayoutMonitor-а об изменении раскладки клавиатуры внутри RDP-сессии.
+//  Р‘РёР±Р»РёРѕС‚РµРєР° RDP-РєР»РёРµРЅС‚Р°, С‡РµСЂРµР· РєРѕС‚РѕСЂСѓСЋ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РёРЅС„РѕСЂРјРёСЂРѕРІР°РЅРёРµ KbdLayoutMonitor-Р° РѕР± РёР·РјРµРЅРµРЅРёРё СЂР°СЃРєР»Р°РґРєРё РєР»Р°РІРёР°С‚СѓСЂС‹ РІРЅСѓС‚СЂРё RDP-СЃРµСЃСЃРёРё.
 //
 //
-//    Автор: Б.Гарбузов, 2022-2023
+//    РђРІС‚РѕСЂ: Р‘.Р“Р°СЂР±СѓР·РѕРІ, 2022-2023
 //           b.garbuzov@hotmail.com
 //
 //
@@ -48,11 +48,11 @@ BOOL APIENTRY DllMain (HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 
 
 /// <summary>
-/// Точка входа, которую вызывает mstsc в момент своей инициализации.
-/// Тут мы производим организацию виртуального RDP-канала для получения инфрормцаии об переключении раскладки клавиатуры от KbdLayoutMonitor-а, запущенного на RDP-сервере.
+/// РўРѕС‡РєР° РІС…РѕРґР°, РєРѕС‚РѕСЂСѓСЋ РІС‹Р·С‹РІР°РµС‚ mstsc РІ РјРѕРјРµРЅС‚ СЃРІРѕРµР№ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё.
+/// РўСѓС‚ РјС‹ РїСЂРѕРёР·РІРѕРґРёРј РѕСЂРіР°РЅРёР·Р°С†РёСЋ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ RDP-РєР°РЅР°Р»Р° РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„СЂРѕСЂРјС†Р°РёРё РѕР± РїРµСЂРµРєР»СЋС‡РµРЅРёРё СЂР°СЃРєР»Р°РґРєРё РєР»Р°РІРёР°С‚СѓСЂС‹ РѕС‚ KbdLayoutMonitor-Р°, Р·Р°РїСѓС‰РµРЅРЅРѕРіРѕ РЅР° RDP-СЃРµСЂРІРµСЂРµ.
 /// </summary>
-/// <param name="pEntryPoints">Функции API виртуального RDP-канала.</param>
-/// <returns>TRUE - успех, FALSE - какая-то ошибка (при возврате значения FALSE RDP-клиент выгрузит нашу dll).</returns>
+/// <param name="pEntryPoints">Р¤СѓРЅРєС†РёРё API РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ RDP-РєР°РЅР°Р»Р°.</param>
+/// <returns>TRUE - СѓСЃРїРµС…, FALSE - РєР°РєР°СЏ-С‚Рѕ РѕС€РёР±РєР° (РїСЂРё РІРѕР·РІСЂР°С‚Рµ Р·РЅР°С‡РµРЅРёСЏ FALSE RDP-РєР»РёРµРЅС‚ РІС‹РіСЂСѓР·РёС‚ РЅР°С€Сѓ dll).</returns>
 BOOL VCAPITYPE VirtualChannelEntry (PCHANNEL_ENTRY_POINTS pEntryPoints)
 {
 #ifdef _DEBUG
@@ -60,10 +60,10 @@ BOOL VCAPITYPE VirtualChannelEntry (PCHANNEL_ENTRY_POINTS pEntryPoints)
 #endif
   BOOL result;
 
-  // Сохраняем для последующего использования список указателей на функции API виртуального RDP-канала.
+  // РЎРѕС…СЂР°РЅСЏРµРј РґР»СЏ РїРѕСЃР»РµРґСѓСЋС‰РµРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРїРёСЃРѕРє СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° С„СѓРЅРєС†РёРё API РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ RDP-РєР°РЅР°Р»Р°.
   memcpy(&VirtualChannelEntryPoints, pEntryPoints, sizeof(CHANNEL_ENTRY_POINTS));
 
-  // Резервируем имя виртуального канала.
+  // Р РµР·РµСЂРІРёСЂСѓРµРј РёРјСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РєР°РЅР°Р»Р°.
   CHANNEL_DEF channelDef;
   ZeroMemory(&channelDef, sizeof(CHANNEL_DEF));
   strcpy_s(channelDef.name, VIRTUAL_CHANNEL_NAME);
@@ -85,8 +85,8 @@ BOOL VCAPITYPE VirtualChannelEntry (PCHANNEL_ENTRY_POINTS pEntryPoints)
 
 
 /// <summary>
-/// Функция, вызываемая RDP-клиентом для уведомления о событиях RDP-соединения.
-/// Подробности: https://learn.microsoft.com/en-us/windows/win32/api/cchannel/nc-cchannel-channel_init_event_fn.
+/// Р¤СѓРЅРєС†РёСЏ, РІС‹Р·С‹РІР°РµРјР°СЏ RDP-РєР»РёРµРЅС‚РѕРј РґР»СЏ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ СЃРѕР±С‹С‚РёСЏС… RDP-СЃРѕРµРґРёРЅРµРЅРёСЏ.
+/// РџРѕРґСЂРѕР±РЅРѕСЃС‚Рё: https://learn.microsoft.com/en-us/windows/win32/api/cchannel/nc-cchannel-channel_init_event_fn.
 /// </summary>
 /// <param name="pInitHandle">Handle to the client connection. This is the handle returned in the ppInitHandle parameter of the VirtualChannelInit function.</param>
 /// <param name="event">Indicates the event that caused the notification. This parameter can be one of the following values:
@@ -161,8 +161,8 @@ VOID VCAPITYPE VirtualChannelInitEventProc (LPVOID pInitHandle, UINT event, LPVO
 
 
 /// <summary>
-/// Функция, вызываемая RDP-клиентом для уведомления о событиях виртуального RDP-канала.
-/// Подробности: https://learn.microsoft.com/en-us/windows/win32/api/cchannel/nc-cchannel-channel_open_event_fn
+/// Р¤СѓРЅРєС†РёСЏ, РІС‹Р·С‹РІР°РµРјР°СЏ RDP-РєР»РёРµРЅС‚РѕРј РґР»СЏ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ СЃРѕР±С‹С‚РёСЏС… РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ RDP-РєР°РЅР°Р»Р°.
+/// РџРѕРґСЂРѕР±РЅРѕСЃС‚Рё: https://learn.microsoft.com/en-us/windows/win32/api/cchannel/nc-cchannel-channel_open_event_fn
 /// </summary>
 /// <param name="openHandle">Handle to the virtual channel. This is the handle returned in the pOpenHandle parameter of the VirtualChannelOpen function.</param>
 /// <param name="event">Indicates the event that caused the notification. This parameter can be one of the following values:
@@ -244,10 +244,10 @@ VOID VCAPITYPE VirtualChannelOpenEventProc (DWORD openHandle, UINT event, LPVOID
 
 
 /// <summary>
-/// Возвращает идентификатор основного (и единственного) потока процесса KbdLayoutMonitor.exe.
-/// Подробности: https://learn.microsoft.com/en-us/windows/win32/toolhelp/taking-a-snapshot-and-viewing-processes.
+/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЃРЅРѕРІРЅРѕРіРѕ (Рё РµРґРёРЅСЃС‚РІРµРЅРЅРѕРіРѕ) РїРѕС‚РѕРєР° РїСЂРѕС†РµСЃСЃР° KbdLayoutMonitor.exe.
+/// РџРѕРґСЂРѕР±РЅРѕСЃС‚Рё: https://learn.microsoft.com/en-us/windows/win32/toolhelp/taking-a-snapshot-and-viewing-processes.
 /// </summary>
-/// <returns>Возвращает идентификатор основного (и единственного) потока процесса KbdLayountMonitor.exe.</returns>
+/// <returns>Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЃРЅРѕРІРЅРѕРіРѕ (Рё РµРґРёРЅСЃС‚РІРµРЅРЅРѕРіРѕ) РїРѕС‚РѕРєР° РїСЂРѕС†РµСЃСЃР° KbdLayountMonitor.exe.</returns>
 DWORD FindKdbLayoutMonitorThreadId ()
 {
   DWORD result = 0;
@@ -263,7 +263,7 @@ DWORD FindKdbLayoutMonitorThreadId ()
       {
         if (lstrcmpi(L"KbdLayoutMonitor.exe", pe32.szExeFile) == 0)
         {
-          // Нашли процесс KbdLayoutMonitor.exe.
+          // РќР°С€Р»Рё РїСЂРѕС†РµСЃСЃ KbdLayoutMonitor.exe.
           THREADENTRY32 te32;
           HANDLE hThreadSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
           if (hThreadSnap != INVALID_HANDLE_VALUE)
@@ -275,7 +275,7 @@ DWORD FindKdbLayoutMonitorThreadId ()
               {
                 if (te32.th32OwnerProcessID == pe32.th32ProcessID)
                 {
-                  // Нашли среди всех потоков системы первый поток процесса KbdLayoutMonitor.exe.
+                  // РќР°С€Р»Рё СЃСЂРµРґРё РІСЃРµС… РїРѕС‚РѕРєРѕРІ СЃРёСЃС‚РµРјС‹ РїРµСЂРІС‹Р№ РїРѕС‚РѕРє РїСЂРѕС†РµСЃСЃР° KbdLayoutMonitor.exe.
                   result = te32.th32ThreadID;
                   break;
                 }
