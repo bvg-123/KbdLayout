@@ -1,0 +1,1 @@
+KbdLayoutMonitor.exe /exit

@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KbdLayoutMonitor", "KbdLayoutMonitor\KbdLayoutMonitor.vcxproj", "{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KbdColorer", "KbdLayoutIndicators\KbdColorer\KbdColorer.vcxproj", "{855F16F3-29D4-4D78-88B8-FB9979E5F674}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KbdLayoutIndicators", "KbdLayoutIndicators", "{99736DA1-AF6B-4F01-91D1-E2EC528E0DDD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KdbLayoutRdpClient", "KdbLayoutRdpClient\KdbLayoutRdpClient.vcxproj", "{645F1A33-89AD-477C-8FDB-7E79603B1279}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KbdRdpColorer", "KbdLayoutIndicators\KbdRdpColorer\KbdRdpColorer.vcxproj", "{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".startup", ".startup", "{D2779FB2-2A6A-4DF7-887B-5413BD613727}"
+	ProjectSection(SolutionItems) = preProject
+		Start.bat = Start.bat
+		StartOnRDPHost.bat = StartOnRDPHost.bat
+		Stop.bat = Stop.bat
+		StopOnRDPHost.bat = StopOnRDPHost.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Debug|x64.ActiveCfg = Debug|x64
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Debug|x64.Build.0 = Debug|x64
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Debug|x86.ActiveCfg = Debug|Win32
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Debug|x86.Build.0 = Debug|Win32
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Release|x64.ActiveCfg = Release|x64
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Release|x64.Build.0 = Release|x64
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Release|x86.ActiveCfg = Release|Win32
+		{E4AD06FB-0F6A-4DC4-8A17-048CEF36ED83}.Release|x86.Build.0 = Release|Win32
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Debug|x64.ActiveCfg = Debug|x64
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Debug|x64.Build.0 = Debug|x64
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Debug|x86.ActiveCfg = Debug|Win32
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Debug|x86.Build.0 = Debug|Win32
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Release|x64.ActiveCfg = Release|x64
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Release|x64.Build.0 = Release|x64
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Release|x86.ActiveCfg = Release|Win32
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674}.Release|x86.Build.0 = Release|Win32
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Debug|x64.ActiveCfg = Debug|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Debug|x64.Build.0 = Debug|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Debug|x86.ActiveCfg = Debug|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Debug|x86.Build.0 = Debug|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Release|x64.ActiveCfg = Release|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Release|x64.Build.0 = Release|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Release|x86.ActiveCfg = Release|x64
+		{645F1A33-89AD-477C-8FDB-7E79603B1279}.Release|x86.Build.0 = Release|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Debug|x64.ActiveCfg = Debug|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Debug|x64.Build.0 = Debug|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Debug|x86.ActiveCfg = Debug|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Debug|x86.Build.0 = Debug|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Release|x64.ActiveCfg = Release|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Release|x64.Build.0 = Release|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Release|x86.ActiveCfg = Release|x64
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4}.Release|x86.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{855F16F3-29D4-4D78-88B8-FB9979E5F674} = {99736DA1-AF6B-4F01-91D1-E2EC528E0DDD}
+		{A1E4D9B3-E052-47BF-BCF7-FB3EADD3DEF4} = {99736DA1-AF6B-4F01-91D1-E2EC528E0DDD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44B74F2A-459D-41CE-809E-DA84D00338E7}
+	EndGlobalSection
+EndGlobal

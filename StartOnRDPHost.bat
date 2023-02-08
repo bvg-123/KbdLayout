@@ -1,0 +1,1 @@
+start KbdLayoutMonitor.exe KbdRdpColorer.exe
