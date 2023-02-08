@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".startup", ".startup", "{D2
 		StopOnRDPHost.bat = StopOnRDPHost.bat
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFEDE845-41E5-4386-ADA7-3D763A147A96}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
